@@ -6,4 +6,4 @@ const port = '3333'
 
 console.log(`Deno running on port ${port}`)
 
-await app.listen(`${host}:${port}`)
+await app.listen(`https://lucas-deno-deploy.deno.dev/`)

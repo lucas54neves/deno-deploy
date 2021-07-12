@@ -1,0 +1,15 @@
+{
+  "name": "deno-deploy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lucas54neves/deno-deploy.git",
+  "author": "Lucas Neves <lucas54neves@gmail.com>",
+  "license": "MIT",
+  "prettier": "@lucas54neves/prettier-config",
+  "scripts": {
+    "dev": "deno run --allow-net src/server.ts"
+  },
+  "devDependencies": {
+    "@lucas54neves/prettier-config": "^1.0.1"
+  }
+}

@@ -7,3 +7,7 @@ Repository for Deno Deploy studies
 ```
 deployctl run --no-check --watch src/server.ts
 ```
+
+## Deployed at
+
+https://lucas-deno-deploy.deno.dev/

@@ -6,4 +6,4 @@ const port = '3333'
 
 console.log(`Deno running on port ${port}`)
 
-await app.listen({ port: 8080 })
+await app.listen({ port: 8000 })

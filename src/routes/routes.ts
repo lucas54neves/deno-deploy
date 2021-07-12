@@ -10,7 +10,25 @@ router.get('/', (context) => {
     email: 'lucas54neves@gmail.com',
     repository: 'deno-deploy',
     url: 'https://github.com/lucas54neves/deno-deploy',
-    description: 'Repository for Deno Deploy studies'
+    description: 'Repository for Deno Deploy studies',
+    routes: [
+      {
+        route: '/',
+        method: 'GET'
+      },
+      {
+        route: '/date-now',
+        method: 'GET'
+      },
+      {
+        route: '/users',
+        method: 'GET'
+      },
+      {
+        route: '/users',
+        method: 'POST'
+      }
+    ]
   }
 })
 

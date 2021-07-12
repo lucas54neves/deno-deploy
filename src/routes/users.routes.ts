@@ -8,6 +8,12 @@ type RequestDTO = {
 
 const users: any = []
 
+const channel = new BroadcastChannel('users')
+
+channel.onmessage = (event) => {
+  messages.push(event.data)
+}
+
 const usersRouter = new Router()
 
 usersRouter.get('/', (context) => {
@@ -19,11 +25,15 @@ usersRouter.post('/', async ({ request, response }: RequestDTO) => {
 
   const value = await body.value
 
-  users.push({
+  const user = {
     id: v4.generate(),
     name: value.name,
     email: value.email
-  })
+  }
+
+  users.push(user)
+
+  channel.postMessage(user)
 
   response.status = 201
 })

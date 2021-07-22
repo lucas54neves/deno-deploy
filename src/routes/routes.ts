@@ -1,4 +1,4 @@
-import { Router } from 'https://deno.land/x/oak/mod.ts'
+import { Router, getQuery } from 'https://deno.land/x/oak/mod.ts'
 import { createRequire } from 'https://deno.land/std/node/module.ts'
 import usersRouter from './users.routes.ts'
 
@@ -72,7 +72,7 @@ router.use('/users', usersRouter.routes())
 router.get('/timeout', async (context) => {
   const start = Date.now()
 
-  const time = context.params
+  // const time = context.request.params
 
   // await sleep(time * 1000)
 
@@ -81,7 +81,7 @@ router.get('/timeout', async (context) => {
   context.response.body = {
     time: end - start,
     date: new Date(),
-    param: time
+    params: getQuery(context, { mergeParams: true })
   }
 
   context.response.headers = {

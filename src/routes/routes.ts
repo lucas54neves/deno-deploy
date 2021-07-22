@@ -70,20 +70,20 @@ router.get('/date-now', (context) => {
 router.use('/users', usersRouter.routes())
 
 router.get(
-  '/timeout/:id',
-  async ({ params, response }: { params: { id: string }; response: any }) => {
+  '/timeout/:time',
+  async ({ params, response }: { params: { time: string }; response: any }) => {
     const start = Date.now()
 
-    // const time = context.request.params
+    const time = Number(params.time)
 
-    // await sleep(time * 1000)
+    await sleep(time * 1000)
 
     const end = Date.now()
 
     response.body = {
-      time: end - start,
+      time: time,
       date: new Date(),
-      data: params.id
+      duration: end - start
     }
 
     // response.headers = {

@@ -70,7 +70,7 @@ router.get('/date-now', (context) => {
 router.use('/users', usersRouter.routes())
 
 router.get(
-  '/timeout',
+  '/timeout:id',
   async ({ params, response }: { params: { id: string }; response: any }) => {
     const start = Date.now()
 
@@ -83,12 +83,12 @@ router.get(
     response.body = {
       time: end - start,
       date: new Date(),
-      data: params
+      data: params.id
     }
 
-    response.headers = {
-      'cache-control': 'no-cache, no-store, must-revalidate'
-    }
+    // response.headers = {
+    //   'cache-control': 'no-cache, no-store, must-revalidate'
+    // }
   }
 )
 

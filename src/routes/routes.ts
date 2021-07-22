@@ -69,26 +69,27 @@ router.get('/date-now', (context) => {
 
 router.use('/users', usersRouter.routes())
 
-router.get('/timeout', async (context) => {
-  const start = Date.now()
+router.get(
+  '/timeout',
+  async ({ params, response }: { params: { id: string }; response: any }) => {
+    const start = Date.now()
 
-  // const time = context.request.params
+    // const time = context.request.params
 
-  // await sleep(time * 1000)
+    // await sleep(time * 1000)
 
-  const params = helpers.getQuery(context, { mergeParams: true })
+    const end = Date.now()
 
-  const end = Date.now()
+    response.body = {
+      time: end - start,
+      date: new Date(),
+      params
+    }
 
-  context.response.body = {
-    time: end - start,
-    date: new Date(),
-    params: params
+    // context.response.headers = {
+    //   'cache-control': 'no-cache, no-store, must-revalidate'
+    // }
   }
-
-  // context.response.headers = {
-  //   'cache-control': 'no-cache, no-store, must-revalidate'
-  // }
-})
+)
 
 export default router

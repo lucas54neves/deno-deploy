@@ -1,5 +1,5 @@
 import { Router } from 'https://deno.land/x/oak/mod.ts'
-
+import { registerLogs } from '@lucas54neves/logflare'
 import usersRouter from './users.routes.ts'
 
 const router = new Router()
@@ -62,5 +62,18 @@ router.get('/date-now', (context) => {
 })
 
 router.use('/users', usersRouter.routes())
+
+router.get('/timeout', async (context) => {
+  const apiKey = 'LfyAMZaQk_y7'
+  const sourceKey = '68d8ff86-a3b0-408c-9e07-53331372e3db'
+
+  await registerLogs({
+    credentials: {
+      apiKey,
+      sourceKey
+    },
+    message: 'Teste'
+  })
+})
 
 export default router

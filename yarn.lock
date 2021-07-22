@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@lucas54neves/logflare@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@lucas54neves/logflare/-/logflare-0.0.25.tgz#e7890934b749e6c0359f8d362d3eac7df43f85fd"
+  integrity sha512-RzxgnEtOZ73WRKnCtM08+hcIb3VdjvKVGeut0U282b/ncFp2QFAACvRcWZ8xUnbn3avDhUQUkKvxxiY/vMxNzQ==
+
 "@lucas54neves/prettier-config@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@lucas54neves/prettier-config/-/prettier-config-1.0.1.tgz#753ec405f8c37e058d76269ac903fdafb13cc608"

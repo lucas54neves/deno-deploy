@@ -68,7 +68,7 @@ router.get('/timeout', (context) => {
 
   setInterval(() => {
     time += 1
-  }, 1000)
+  }, 15000)
   // try {
   //   for (let i: number; i < 60; i++) {
   //   }

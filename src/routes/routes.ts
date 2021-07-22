@@ -1,4 +1,5 @@
 import { Router } from 'https://deno.land/x/oak/mod.ts'
+import { createRequire } from 'https://deno.land/std/node/module.ts'
 import usersRouter from './users.routes.ts'
 
 const router = new Router()
@@ -7,11 +8,6 @@ function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
-}
-
-type RequestDTO = {
-  request: any
-  response: any
 }
 
 router.get('/', (context) => {
@@ -73,20 +69,22 @@ router.get('/date-now', (context) => {
 
 router.use('/users', usersRouter.routes())
 
-router.get('/timeout', async ({ request, response }: RequestDTO) => {
+router.get('/timeout', async (context) => {
   const start = Date.now()
 
-  await sleep(8 * 1000)
+  const time = Number(context.params)
+
+  await sleep(time * 1000)
 
   const end = Date.now()
 
-  response.body = {
+  context.response.body = {
     time: end - start,
     date: new Date(),
-    url: request.url
+    param: time
   }
 
-  response.headers = {
+  context.response.headers = {
     'cache-control': 'no-cache, no-store, must-revalidate'
   }
 })

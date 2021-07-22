@@ -64,26 +64,15 @@ router.get('/date-now', (context) => {
 router.use('/users', usersRouter.routes())
 
 router.get('/timeout', (context) => {
-  let time = 0
+  const start = Date.now()
 
-  setInterval(() => {
-    time += 1
-    context.response.body = {
-      time,
-      test: 3
-    }
-  }, 15000)
-  // try {
-  //   for (let i: number; i < 60; i++) {
-  //   }
-  //   context.response.body = {
-  //     time
-  //   }
-  // } catch (error) {
+  setInterval(() => {}, 2000)
+
+  const end = Date.now()
+
   context.response.body = {
-    time
+    time: end - start
   }
-  // }
 })
 
 export default router

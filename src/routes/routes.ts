@@ -1,7 +1,9 @@
 import { Router } from 'https://deno.land/x/oak/mod.ts'
-import { registerLogs } from '@lucas54neves/logflare'
+import { createRequire } from 'https://deno.land/std/node/module.ts'
 import usersRouter from './users.routes.ts'
 
+const require = createRequire(import.meta.url)
+const logflare = require('@lucas54neves/logflare')
 const router = new Router()
 
 router.get('/', (context) => {
@@ -67,7 +69,7 @@ router.get('/timeout', async (context) => {
   const apiKey = 'LfyAMZaQk_y7'
   const sourceKey = '68d8ff86-a3b0-408c-9e07-53331372e3db'
 
-  await registerLogs({
+  await logflare.registerLogs({
     credentials: {
       apiKey,
       sourceKey

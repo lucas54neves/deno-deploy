@@ -63,7 +63,7 @@ router.get('/date-now', (context) => {
 
 router.use('/users', usersRouter.routes())
 
-router.get('/timeout', async (context) => {
+router.get('/timeout', (context) => {
   let time = 0
 
   setInterval(() => {

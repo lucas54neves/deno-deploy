@@ -66,7 +66,7 @@ router.use('/users', usersRouter.routes())
 router.get('/timeout', (context) => {
   const start = Date.now()
 
-  setInterval(() => {}, 2000)
+  setTimeout(() => {}, 2000)
 
   const end = Date.now()
 

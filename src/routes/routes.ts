@@ -72,12 +72,13 @@ router.use('/users', usersRouter.routes())
 router.get('/timeout', async (context) => {
   const start = Date.now()
 
-  await sleep(1800)
+  await sleep(50000)
 
   const end = Date.now()
 
   context.response.body = {
-    time: end - start
+    time: end - start,
+    date: new Date()
   }
 })
 

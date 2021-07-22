@@ -83,12 +83,12 @@ router.get(
     response.body = {
       time: end - start,
       date: new Date(),
-      params: params
+      data: params
     }
 
-    // context.response.headers = {
-    //   'cache-control': 'no-cache, no-store, must-revalidate'
-    // }
+    response.headers = {
+      'cache-control': 'no-cache, no-store, must-revalidate'
+    }
   }
 )
 

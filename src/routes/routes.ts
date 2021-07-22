@@ -66,20 +66,20 @@ router.use('/users', usersRouter.routes())
 router.get('/timeout', async (context) => {
   let time = 0
 
-  try {
-    for (let i: number; i < 60; i++) {
-      setInterval(() => {
-        time += 1
-      }, 1000)
-    }
-    context.response.body = {
-      time
-    }
-  } catch (error) {
-    context.response.body = {
-      time
-    }
+  setInterval(() => {
+    time += 1
+  }, 1000)
+  // try {
+  //   for (let i: number; i < 60; i++) {
+  //   }
+  //   context.response.body = {
+  //     time
+  //   }
+  // } catch (error) {
+  context.response.body = {
+    time
   }
+  // }
 })
 
 export default router

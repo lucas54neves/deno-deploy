@@ -83,7 +83,7 @@ router.get(
     response.body = {
       time: end - start,
       date: new Date(),
-      params
+      params: params
     }
 
     // context.response.headers = {

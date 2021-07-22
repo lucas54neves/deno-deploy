@@ -70,7 +70,7 @@ router.get('/date-now', (context) => {
 router.use('/users', usersRouter.routes())
 
 router.get(
-  '/timeout:id',
+  '/timeout/:id',
   async ({ params, response }: { params: { id: string }; response: any }) => {
     const start = Date.now()
 

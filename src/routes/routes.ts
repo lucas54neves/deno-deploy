@@ -4,6 +4,12 @@ import usersRouter from './users.routes.ts'
 
 const router = new Router()
 
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
 router.get('/', (context) => {
   context.response.body = {
     author: 'Lucas Neves',
@@ -63,10 +69,10 @@ router.get('/date-now', (context) => {
 
 router.use('/users', usersRouter.routes())
 
-router.get('/timeout', (context) => {
+router.get('/timeout', async (context) => {
   const start = Date.now()
 
-  setTimeout(() => {}, 20000)
+  await sleep(1800)
 
   const end = Date.now()
 

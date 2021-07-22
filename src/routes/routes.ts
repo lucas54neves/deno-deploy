@@ -85,9 +85,9 @@ router.get('/timeout', async (context) => {
     date: new Date()
   }
 
-  context.response.headers = {
-    'cache-control': 'no-cache, no-store, must-revalidate'
-  }
+  // context.response.headers = {
+  //   'cache-control': 'no-cache, no-store, must-revalidate'
+  // }
 })
 
 export default router

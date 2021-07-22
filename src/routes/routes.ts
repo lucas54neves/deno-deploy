@@ -83,7 +83,7 @@ router.get('/timeout', async (context) => {
   context.response.body = {
     time: end - start,
     date: new Date(),
-    params: context.request.url.searchParams()
+    params: context.request.url.searchParams
   }
 
   // context.response.headers = {

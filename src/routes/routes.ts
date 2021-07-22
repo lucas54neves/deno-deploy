@@ -76,14 +76,14 @@ router.get('/timeout', async (context) => {
 
   // await sleep(time * 1000)
 
-  const params = getQuery(context, { mergeParams: true })
+  // const params = getQuery(context, { mergeParams: true })
 
   const end = Date.now()
 
   context.response.body = {
     time: end - start,
     date: new Date(),
-    params
+    params: context.request.url.searchParams
   }
 
   // context.response.headers = {
